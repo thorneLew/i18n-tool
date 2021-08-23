@@ -1,0 +1,98 @@
+{
+	"name": "i18n-tools",
+	"displayName": "i18n-tools",
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.59.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:i18n-tools.helloWorld",
+		"onLanguage:handlebars",
+		"onLanguage:javascript",
+		"onLanguage:typescript",
+		"onLanguage:javascriptreact",
+		"onLanguage:typescriptreact"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "",
+			"required": [
+			  "sid"
+			],
+			"properties": {
+			"i18n-tools.rootPath": {
+				"type": "string",
+				"default": "locales",
+				"description": "语言文件目录名"
+			},
+			"i18n-tools.regText": {
+				"type": "object",
+				"default": {
+					"pattern": "{{t\\s\"(.+)\"}}",
+					"modifiers": "g"
+				}, 
+				"description": "匹配语法的正则"
+			},
+			"i18n-tools.sourceLanguage": {
+				"type": "string",
+				"default": "zh-CN",
+				"description": "当前展示的语言"
+			},
+			"i18n-tools.langs": {
+				"type": "Array",
+				"default": [
+				  "zh-CN",
+				  "en"
+				],
+				"description": "语言类型"
+			  }
+			}
+		},
+		"commands": [
+			{
+				"command": "i18n-tools.helloWorld",
+				"title": "Hello World"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorHasSelection && resourceFilename =~ /.js|.vue|.ts|.hbs/",
+					"command": "i18n-tools.helloWorld",
+					"group": "I18n-tools"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.59.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"eslint": "^7.27.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2"
+	},
+	"dependencies": {
+		"@types/lodash": "^4.14.172",
+		"lodash": "^4.17.21"
+	}
+}
