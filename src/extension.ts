@@ -18,12 +18,12 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// 保存文件事件
 	const saveFileEvent = vscode.workspace.onDidSaveTextDocument((document) => {
-		i18nContent.start();
+		// i18nContent.start();
 	});
 	
 	// 打开文件事件
 	const openFileEvent = vscode.workspace.onDidOpenTextDocument((document) => {
-		i18nContent.start();
+		i18nContent.start();	
 	});
 
 	// // 关闭文件事件

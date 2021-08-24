@@ -2,7 +2,7 @@
 	"name": "i18n-tools",
 	"displayName": "i18n-tools",
 	"description": "",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "villas",
 	"engines": {
 		"vscode": "^1.59.0"
@@ -11,7 +11,6 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:i18n-tools.helloWorld",
 		"onLanguage:handlebars",
 		"onLanguage:javascript",
 		"onLanguage:typescript",
@@ -45,6 +44,11 @@
 				"default": "zh-CN",
 				"description": "当前展示的语言"
 			},
+			"i18n-tools.color": {
+				"type": "string",
+				"default": "#d6a01d",
+				"description": "文字颜色"
+			},
 			"i18n-tools.langs": {
 				"type": "Array",
 				"default": [
@@ -55,21 +59,7 @@
 			  }
 			}
 		},
-		"commands": [
-			{
-				"command": "i18n-tools.helloWorld",
-				"title": "Hello World"
-			}
-		],
-		"menus": {
-			"editor/context": [
-				{
-					"when": "editorHasSelection && resourceFilename =~ /.js|.vue|.ts|.hbs/",
-					"command": "i18n-tools.helloWorld",
-					"group": "I18n-tools"
-				}
-			]
-		}
+		"commands": []
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
@@ -92,8 +82,5 @@
 		"typescript": "^4.3.2",
 		"vscode-test": "^1.5.2"
 	},
-	"dependencies": {
-		"@types/lodash": "^4.14.172",
-		"lodash": "^4.17.21"
-	}
+	"repository": "git@github.com:thorneLew/i18n-tool.git"
 }

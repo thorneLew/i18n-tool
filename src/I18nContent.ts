@@ -1,9 +1,9 @@
-import _ = require("lodash");
-import { DecorationOptions, Range, TextDocument, TextEditor, window, workspace} from "vscode";
-import { getConfig } from "./config";
+import { DecorationOptions, Range, TextEditor, window} from "vscode";
+import { getConfig, get } from "./config";
 import I18n from "./i18n";
 
 const bigNumDecoration = window.createTextEditorDecorationType ({});
+
 
 export class I18nContent {
 	// 获取当前活动编辑器
@@ -31,17 +31,17 @@ export class I18nContent {
 		   // 获取数字开始和结束的位置
 		   const startPos = doc.positionAt(match.index);
 		   const endPos = doc.positionAt(match.index + match[0].length);
-		   var a = I18n.data;
 			// TODO: 此处先临时使用 sourceLanguage 配置完整路径 （会优化的）
-		   const value = _.get(I18n.data, `${config.sourceLanguage}.${match[1]}`);
-		   const lang = value || '暂时没有翻译';
+			let value = get(I18n.data, `${config.sourceLanguage}.${match[1]}`) || '';
+		    const lang = value || '暂时没有翻译';
+			
 		   // 在after内展示不同语言的文案
 		   const decoration: DecorationOptions = {
 			 range: new Range(startPos, endPos),
 			 renderOptions: {
 				after: {
 					contentText: "   " + lang + "   ",
-					color: "yellow",
+					color: config.color,
 				}
 			 }	
 		   };
