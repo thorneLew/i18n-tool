@@ -2,7 +2,7 @@
 	"name": "i18n-tools",
 	"displayName": "i18n-tools",
 	"description": "",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "villas",
 	"engines": {
 		"vscode": "^1.59.0"
