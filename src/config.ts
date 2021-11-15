@@ -11,7 +11,7 @@ export function getConfig() {
 		rootPath: rootPath,
 		reg: new RegExp(regText?.pattern as string, regText?.modifiers as string),
 		sourceLanguage,
-		color
+		color: color || '#d6a01d'
 	};
 }
 export function get (source: object, path: string, defaultValue = undefined) {

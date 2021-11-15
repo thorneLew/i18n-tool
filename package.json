@@ -2,7 +2,7 @@
 	"name": "i18n-tools",
 	"displayName": "i18n-tools",
 	"description": "",
-	"version": "0.0.3",
+	"version": "0.0.5",
 	"publisher": "villas",
 	"engines": {
 		"vscode": "^1.59.0"
@@ -82,5 +82,6 @@
 		"typescript": "^4.3.2",
 		"vscode-test": "^1.5.2"
 	},
-	"repository": "git@github.com:thorneLew/i18n-tool.git"
+	"repository": "git@github.com:thorneLew/i18n-tool.git",
+	"license": "MIT"
 }

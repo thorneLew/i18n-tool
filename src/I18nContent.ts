@@ -33,7 +33,7 @@ export class I18nContent {
 		   const endPos = doc.positionAt(match.index + match[0].length);
 			// TODO: 此处先临时使用 sourceLanguage 配置完整路径 （会优化的）
 			let value = get(I18n.data, `${config.sourceLanguage}.${match[1]}`) || '';
-		    const lang = value || '暂时没有翻译';
+		    const lang = value || '--';
 			
 		   // 在after内展示不同语言的文案
 		   const decoration: DecorationOptions = {
